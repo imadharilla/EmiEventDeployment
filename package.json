@@ -12,6 +12,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "express": "^4.17.1",
+    "debug": "^4.1.1",
     "googleapis": "^39.2.0",
     "jquery": "^1.9.1",
     "jsonwebtoken": "^8.5.1",

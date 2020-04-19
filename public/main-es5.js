@@ -603,29 +603,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./src/app/event/event-stats/event-stats.component.ts");
 
     var routes = [{
-      path: '/',
+      path: '',
       component: _event_event_list_event_list_component__WEBPACK_IMPORTED_MODULE_2__["EventListComponent"]
     }, {
-      path: '/create',
+      path: 'create',
       component: _event_event_create_event_create_component__WEBPACK_IMPORTED_MODULE_3__["EventCreateComponent"],
       canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
     }, {
-      path: '/edit/:eventId',
+      path: 'edit/:eventId',
       component: _event_event_create_event_create_component__WEBPACK_IMPORTED_MODULE_3__["EventCreateComponent"],
       canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
     }, {
-      path: '/stats/:eventId',
+      path: 'stats/:eventId',
       component: _event_event_stats_event_stats_component__WEBPACK_IMPORTED_MODULE_8__["EventStatsComponent"],
       canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
     }, {
-      path: '/attendees',
+      path: 'attendees',
       component: _attendee_attendee_list_attendee_list_component__WEBPACK_IMPORTED_MODULE_7__["AttendeeListComponent"],
       canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
     }, {
-      path: '/login',
+      path: 'login',
       component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]
     }, {
-      path: '/signup',
+      path: 'signup',
       component: _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__["SignupComponent"]
     }];
 
@@ -641,7 +641,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return new (t || AppRoutingModule)();
       },
       providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]],
-      imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+      imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, {
+        useHash: true
+      })], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
     });
 
     (function () {
@@ -657,7 +659,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppRoutingModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
-          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, {
+            useHash: true
+          })],
           exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
           providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]]
         }]

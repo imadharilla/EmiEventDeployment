@@ -1696,7 +1696,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); //const BACKEND_URL = environment.apiUrl + '/attendee/'
 
 
-    var BACKEND_URL = '/attendee/';
+    var BACKEND_URL = '/api/attendee/';
 
     var AttendeeService =
     /*#__PURE__*/
@@ -2005,7 +2005,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); //const BACKEND_URL = environment.apiUrl + '/user/'
 
 
-    var BACKEND_URL = '/user/';
+    var BACKEND_URL = '/api/user/';
 
     var AuthService =
     /*#__PURE__*/
@@ -5192,7 +5192,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); //const BACKEND_URL = environment.apiUrl + '/events/'
 
 
-    var BACKEND_URL = '/events/';
+    var BACKEND_URL = '/api/events/';
 
     var EventsService =
     /*#__PURE__*/

@@ -1016,7 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //const BACKEND_URL = environment.apiUrl + '/attendee/'
-const BACKEND_URL = '/attendee/';
+const BACKEND_URL = '/api/attendee/';
 class AttendeeService {
     constructor(http, router) {
         this.http = http;
@@ -1163,7 +1163,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //const BACKEND_URL = environment.apiUrl + '/user/'
-const BACKEND_URL = '/user/';
+const BACKEND_URL = '/api/user/';
 class AuthService {
     constructor(http, router) {
         this.http = http;
@@ -2779,7 +2779,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //const BACKEND_URL = environment.apiUrl + '/events/'
-const BACKEND_URL = '/events/';
+const BACKEND_URL = '/api/events/';
 class EventsService {
     constructor(http, router) {
         this.http = http;

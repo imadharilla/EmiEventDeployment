@@ -478,13 +478,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _event_event_list_event_list_component__WEBPACK_IMPORTED_MODULE_2__["EventListComponent"] },
-    { path: 'create', component: _event_event_create_event_create_component__WEBPACK_IMPORTED_MODULE_3__["EventCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
-    { path: 'edit/:eventId', component: _event_event_create_event_create_component__WEBPACK_IMPORTED_MODULE_3__["EventCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
-    { path: 'stats/:eventId', component: _event_event_stats_event_stats_component__WEBPACK_IMPORTED_MODULE_8__["EventStatsComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
-    { path: 'attendees', component: _attendee_attendee_list_attendee_list_component__WEBPACK_IMPORTED_MODULE_7__["AttendeeListComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
-    { path: 'login', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
-    { path: 'signup', component: _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__["SignupComponent"] },
+    { path: '/', component: _event_event_list_event_list_component__WEBPACK_IMPORTED_MODULE_2__["EventListComponent"] },
+    { path: '/create', component: _event_event_create_event_create_component__WEBPACK_IMPORTED_MODULE_3__["EventCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
+    { path: '/edit/:eventId', component: _event_event_create_event_create_component__WEBPACK_IMPORTED_MODULE_3__["EventCreateComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
+    { path: '/stats/:eventId', component: _event_event_stats_event_stats_component__WEBPACK_IMPORTED_MODULE_8__["EventStatsComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
+    { path: '/attendees', component: _attendee_attendee_list_attendee_list_component__WEBPACK_IMPORTED_MODULE_7__["AttendeeListComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
+    { path: '/login', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
+    { path: '/signup', component: _auth_signup_signup_component__WEBPACK_IMPORTED_MODULE_5__["SignupComponent"] },
 ];
 class AppRoutingModule {
 }

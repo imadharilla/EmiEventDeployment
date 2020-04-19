@@ -46,6 +46,11 @@ mongoose.connect('mongodb+srv://Mata:4RruaXfcdPVZMDX@cluster0-vzdpf.mongodb.net/
 app.use(bodyParser.json());
 app.use("/images", express.static(path.join(__dirname + "backend/images")));
 
+app.get('/*', function(req, res, next){
+  res.setHeader('Last-Modified', (new Date()).toUTCString());
+  next();
+});
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', "*");
   res.setHeader("Access-Control-Allow-Headers",

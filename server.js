@@ -1,6 +1,7 @@
 const app = require("./app");
 const debug = require("debug")("node-angular");
 const http = require("http");
+const path = require("path");
 express = require('express');
 
 const normalizePort = val => {

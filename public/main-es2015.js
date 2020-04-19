@@ -1016,6 +1016,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //const BACKEND_URL = environment.apiUrl + '/attendee/'
+const BACKEND_URL = '/attendee/';
 class AttendeeService {
     constructor(http, router) {
         this.http = http;
@@ -1024,7 +1025,7 @@ class AttendeeService {
         this.attendeeListUpdated = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
     }
     getAttendeeList() {
-        let requests = this.http.get('attendee/').subscribe(result => {
+        let requests = this.http.get(BACKEND_URL).subscribe(result => {
             this.attendeeList = [];
             result.attendeeList.map(attendee => {
                 this.attendeeList.push({
@@ -1040,12 +1041,12 @@ class AttendeeService {
         return [...this.attendeeList];
     }
     addAttendee(attendee) {
-        this.http.post('attendee/', attendee).subscribe(response => {
+        this.http.post(BACKEND_URL, attendee).subscribe(response => {
             this.getAttendeeList();
         });
     }
     editAttendee(attendee) {
-        this.http.put('attendee/', attendee).subscribe(response => {
+        this.http.put(BACKEND_URL, attendee).subscribe(response => {
             this.getAttendeeList();
         });
     }
@@ -1053,7 +1054,7 @@ class AttendeeService {
         return this.attendeeListUpdated.asObservable();
     }
     deleteAttendee(id) {
-        this.http.delete('attendee/' + id).subscribe(() => {
+        this.http.delete(BACKEND_URL + id).subscribe(() => {
             this.getAttendeeList();
         });
     }
@@ -1162,6 +1163,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //const BACKEND_URL = environment.apiUrl + '/user/'
+const BACKEND_URL = '/user/';
 class AuthService {
     constructor(http, router) {
         this.http = http;
@@ -1181,7 +1183,7 @@ class AuthService {
     createUser(nom, prenom, email, password) {
         const authData = { email: email, password: password };
         const profileData = { authData: authData, nom: nom, prenom: prenom };
-        this.http.post("signup", profileData).subscribe(() => {
+        this.http.post(BACKEND_URL + "signup", profileData).subscribe(() => {
             this.login(email, password);
         }, error => {
             this.authStatusListener.next(false);
@@ -1190,7 +1192,7 @@ class AuthService {
     ;
     login(email, password) {
         const authData = { email: email, password: password };
-        this.http.post("login", authData)
+        this.http.post(BACKEND_URL + "login", authData)
             .subscribe(response => {
             if (response.token) {
                 this.token = response.token;
@@ -2777,6 +2779,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //const BACKEND_URL = environment.apiUrl + '/events/'
+const BACKEND_URL = '/events/';
 class EventsService {
     constructor(http, router) {
         this.http = http;
@@ -2786,7 +2789,7 @@ class EventsService {
     }
     getPosts(eventsPerPage, currentPage) {
         const queryParams = `?pagesize=${eventsPerPage} &page=${currentPage}`;
-        this.http.get('events/' + queryParams)
+        this.http.get(BACKEND_URL + queryParams)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((eventData) => {
             return { events: eventData.events.map(event => {
                     return {
@@ -2821,17 +2824,17 @@ class EventsService {
         postData.append("image", image, event.title);
         const jsonEvent = JSON.stringify(event);
         postData.append("jsonEvent", jsonEvent);
-        this.http.post('events/', postData)
+        this.http.post(BACKEND_URL, postData)
             .subscribe((responseData) => {
             this.router.navigate(['/']);
         });
     }
     getEvent(id) {
-        return this.http.get('events/' + id);
+        return this.http.get(BACKEND_URL + id);
     }
     updateEvent(id, event, image) {
         if (typeof (image) === 'string') {
-            this.http.put('events/' + id, event)
+            this.http.put(BACKEND_URL + id, event)
                 .subscribe((response) => {
                 this.router.navigate(['/']);
             });
@@ -2840,7 +2843,7 @@ class EventsService {
             const postData = new FormData();
             postData.append("image", image, event.title);
             postData.append("jsonEvent", JSON.stringify(event));
-            this.http.put('events/' + id, postData)
+            this.http.put(BACKEND_URL + id, postData)
                 .subscribe((response) => {
                 this.router.navigate(['/']);
             });
@@ -2851,7 +2854,7 @@ class EventsService {
             event: event,
             attendeeList: attendeeList
         };
-        return this.http.put('events/' + 'invite/' + id, data);
+        return this.http.put(BACKEND_URL + 'invite/' + id, data);
     }
     deletePost(eventId) {
         return this.http

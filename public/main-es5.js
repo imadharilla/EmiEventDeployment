@@ -1692,6 +1692,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); //const BACKEND_URL = environment.apiUrl + '/attendee/'
 
 
+    var BACKEND_URL = '/attendee/';
+
     var AttendeeService =
     /*#__PURE__*/
     function () {
@@ -1709,7 +1711,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getAttendeeList() {
           var _this2 = this;
 
-          var requests = this.http.get('attendee/').subscribe(function (result) {
+          var requests = this.http.get(BACKEND_URL).subscribe(function (result) {
             _this2.attendeeList = [];
             result.attendeeList.map(function (attendee) {
               _this2.attendeeList.push({
@@ -1730,7 +1732,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function addAttendee(attendee) {
           var _this3 = this;
 
-          this.http.post('attendee/', attendee).subscribe(function (response) {
+          this.http.post(BACKEND_URL, attendee).subscribe(function (response) {
             _this3.getAttendeeList();
           });
         }
@@ -1739,7 +1741,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function editAttendee(attendee) {
           var _this4 = this;
 
-          this.http.put('attendee/', attendee).subscribe(function (response) {
+          this.http.put(BACKEND_URL, attendee).subscribe(function (response) {
             _this4.getAttendeeList();
           });
         }
@@ -1753,7 +1755,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function deleteAttendee(id) {
           var _this5 = this;
 
-          this.http.delete('attendee/' + id).subscribe(function () {
+          this.http.delete(BACKEND_URL + id).subscribe(function () {
             _this5.getAttendeeList();
           });
         }
@@ -1999,6 +2001,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); //const BACKEND_URL = environment.apiUrl + '/user/'
 
 
+    var BACKEND_URL = '/user/';
+
     var AuthService =
     /*#__PURE__*/
     function () {
@@ -2040,7 +2044,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             nom: nom,
             prenom: prenom
           };
-          this.http.post("signup", profileData).subscribe(function () {
+          this.http.post(BACKEND_URL + "signup", profileData).subscribe(function () {
             _this6.login(email, password);
           }, function (error) {
             _this6.authStatusListener.next(false);
@@ -2055,7 +2059,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             email: email,
             password: password
           };
-          this.http.post("login", authData).subscribe(function (response) {
+          this.http.post(BACKEND_URL + "login", authData).subscribe(function (response) {
             if (response.token) {
               _this7.token = response.token;
               _this7.isAuth = true;
@@ -5184,6 +5188,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js"); //const BACKEND_URL = environment.apiUrl + '/events/'
 
 
+    var BACKEND_URL = '/events/';
+
     var EventsService =
     /*#__PURE__*/
     function () {
@@ -5202,7 +5208,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this19 = this;
 
           var queryParams = "?pagesize=".concat(eventsPerPage, " &page=").concat(currentPage);
-          this.http.get('events/' + queryParams).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (eventData) {
+          this.http.get(BACKEND_URL + queryParams).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (eventData) {
             return {
               events: eventData.events.map(function (event) {
                 return {
@@ -5243,14 +5249,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           postData.append("image", image, event.title);
           var jsonEvent = JSON.stringify(event);
           postData.append("jsonEvent", jsonEvent);
-          this.http.post('events/', postData).subscribe(function (responseData) {
+          this.http.post(BACKEND_URL, postData).subscribe(function (responseData) {
             _this20.router.navigate(['/']);
           });
         }
       }, {
         key: "getEvent",
         value: function getEvent(id) {
-          return this.http.get('events/' + id);
+          return this.http.get(BACKEND_URL + id);
         }
       }, {
         key: "updateEvent",
@@ -5258,14 +5264,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this21 = this;
 
           if (typeof image === 'string') {
-            this.http.put('events/' + id, event).subscribe(function (response) {
+            this.http.put(BACKEND_URL + id, event).subscribe(function (response) {
               _this21.router.navigate(['/']);
             });
           } else {
             var postData = new FormData();
             postData.append("image", image, event.title);
             postData.append("jsonEvent", JSON.stringify(event));
-            this.http.put('events/' + id, postData).subscribe(function (response) {
+            this.http.put(BACKEND_URL + id, postData).subscribe(function (response) {
               _this21.router.navigate(['/']);
             });
           }
@@ -5277,7 +5283,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             event: event,
             attendeeList: attendeeList
           };
-          return this.http.put('events/' + 'invite/' + id, data);
+          return this.http.put(BACKEND_URL + 'invite/' + id, data);
         }
       }, {
         key: "deletePost",
